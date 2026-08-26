@@ -63,6 +63,8 @@ section{padding:48px 0;}
 .video-facade{position:relative;width:100%;padding-top:56.25%;cursor:pointer;background:#0d1f33;}
 .video-facade img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;}
 .video-facade iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;display:block;}
+.video-facade-shade{position:absolute;top:0;left:0;width:100%;height:55%;background:linear-gradient(to bottom, rgba(0,0,0,0.55), rgba(0,0,0,0));pointer-events:none;}
+.video-facade-caption{position:absolute;top:8%;left:50%;transform:translateX(-50%);width:88%;text-align:center;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;font-weight:800;font-size:clamp(20px,6vw,30px);line-height:1.15;color:var(--gold);text-shadow:0 2px 0 #000,2px 0 0 #000,-2px 0 0 #000,0 -2px 0 #000,3px 3px 8px rgba(0,0,0,0.6);letter-spacing:0.3px;text-transform:uppercase;}
 .video-facade .play-btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,0.45);animation:vslPulse 1.8s ease-in-out infinite;}
 @keyframes vslPulse{0%,100%{transform:translate(-50%,-50%) scale(1);box-shadow:0 4px 16px rgba(0,0,0,0.45);}50%{transform:translate(-50%,-50%) scale(1.12);box-shadow:0 6px 22px rgba(0,0,0,0.55);}}
 @media (max-width:640px){
@@ -177,6 +179,8 @@ body{padding-bottom:78px;}
     <div class="hero-video-wrap" data-reveal="up" data-reveal-delay="220">
       <div class="video-facade" id="vslFacade" role="button" tabindex="0" aria-label="Reproduzir vídeo">
         <img src="https://i.ytimg.com/vi/uSIWCiH3vpY/hqdefault.jpg" alt="Vídeo: Protocolo Cão Calmo" loading="lazy" width="480" height="270">
+        <div class="video-facade-shade" aria-hidden="true"></div>
+        <span class="video-facade-caption" aria-hidden="true">Isto mudou tudo</span>
         <span class="play-btn" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
       </div>
     </div>
@@ -333,7 +337,7 @@ body{padding-bottom:78px;}
   <div class="container">
     <div class="section-paw visible"><svg viewBox="0 0 512 512" fill="currentColor"><ellipse cx="140" cy="200" rx="50" ry="68"></ellipse><ellipse cx="210" cy="128" rx="50" ry="68"></ellipse><ellipse cx="302" cy="128" rx="50" ry="68"></ellipse><ellipse cx="372" cy="200" rx="50" ry="68"></ellipse><ellipse cx="256" cy="360" rx="146" ry="112"></ellipse></svg></div>
     <h2 data-reveal="up" data-reveal-delay="0">Quem está por trás do Modo Escondido</h2>
-    <p class="prose" style="opacity:0.95;" data-reveal="left" data-reveal-delay="0">Chamo-me Tiago Bastos. Não sou treinador de cães nem tenho diploma nenhum na área.</p>
+    <p class="prose" style="opacity:0.95;" data-reveal="left" data-reveal-delay="0">Chamo-me Lucas Ribeiro. Não sou treinador de cães nem tenho diploma nenhum na área.</p>
     <p class="prose" style="opacity:0.95;" data-reveal="left" data-reveal-delay="150">Tinha um cão que quase me fez desistir, ladrava a tudo, saltava nas visitas e puxava-me nos passeios. Tentei de tudo. Nada resultava.</p>
     <p class="prose" style="opacity:0.95;" data-reveal="left" data-reveal-delay="300">O que mudou tudo não foi treinar mais, foi perceber que o comportamento vem da rotina. Assim nasceu o Modo Escondido, testado no meu próprio cão.</p>
     <p class="prose" style="opacity:0.95;" data-reveal="left" data-reveal-delay="450">Hoje é o método que uso todos os dias, e o mesmo que já ajudou centenas de donos a recuperar o controlo em casa.</p>
