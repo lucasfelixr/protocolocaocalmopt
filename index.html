@@ -247,7 +247,7 @@ body{padding-bottom:78px;overflow-x:hidden;}
       </div>
     </div>
 
-    <a href="#oferta" class="btn" data-reveal="up" data-reveal-delay="300">Quero aplicar o Modo Escondido</a>
+    <a href="#oferta" class="btn js-scroll-oferta" data-reveal="up" data-reveal-delay="300">Quero aplicar o Modo Escondido</a>
     <div class="trust-badge trust-badge--light"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>Pagamento seguro pela Hotmart, acesso imediato</div>
   </div>
 </section>
@@ -550,4 +550,5 @@ document.querySelectorAll('.section-paw').forEach(el => observer.observe(el));
   }
 })();
 </script>
+<script>(function(){var l=document.querySelector('.js-scroll-oferta');var t=document.getElementById('oferta');if(!l||!t)return;l.addEventListener('click',function(e){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});});})();</script>
 </body></html>
