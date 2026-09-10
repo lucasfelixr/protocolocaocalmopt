@@ -55,7 +55,8 @@ img{max-width:100%;display:block;}
 .btn:hover{background:linear-gradient(180deg, var(--gold-light), var(--gold-light));}
 .btn:active{transform:translateY(3px);box-shadow:0 2px 0 var(--gold-dark), 0 4px 10px rgba(0,0,0,0.2);}
 section{padding:48px 0;}
-.pain + .pain{padding-top:0;}
+.pain + .pain, .pain + .como-funciona{padding-top:0;}
+.pain:has(+ .como-funciona){padding-bottom:28px;}
 section + section.pain{padding-top:40px;}
 .pain:has(+ .pain){padding-bottom:28px;}
 .hero{background:var(--navy);color:#fff;text-align:center;padding:36px 0 40px;}
@@ -161,6 +162,7 @@ footer{background:var(--navy-dark);color:rgba(255,255,255,0.6);text-align:center
   .prose,.faq-a{text-wrap:pretty;}
   section{padding:36px 0;}
   section + section.pain{padding-top:30px;}
+  .pain:has(+ .como-funciona){padding-bottom:22px;}
   .pain:has(+ .pain){padding-bottom:22px;}
 }
 
@@ -215,6 +217,39 @@ body{padding-bottom:78px;overflow-x:hidden;}
 .wa-photo img{filter:none;}
 .wa-cap{display:block;flex:0 0 auto;margin-top:8px;font-size:12px;line-height:1.3;color:#555;text-align:center;}
 .wa-hint{text-align:center;font-size:12.5px;color:#888;margin-top:6px;}
+.adv-grid{display:grid;grid-template-columns:1fr;gap:10px;max-width:520px;margin:24px auto 0;text-align:left;}
+.adv-item{display:flex;gap:12px;align-items:flex-start;background:#fff;border-radius:12px;padding:14px 16px;box-shadow:0 2px 10px rgba(0,0,0,0.10);}
+.adv-check{width:18px;height:18px;flex-shrink:0;margin-top:2px;color:#1F9254;}
+.adv-item strong{display:block;color:var(--navy);font-size:15px;line-height:1.3;margin-bottom:3px;}
+.adv-item span{display:block;font-size:13px;color:#555;line-height:1.45;}
+@media (min-width:560px){.adv-grid{grid-template-columns:1fr 1fr;}}
+.bento{display:grid;grid-template-columns:1fr;gap:12px;max-width:520px;margin:22px auto 0;text-align:left;}
+.bento-main,.bento-card{border-radius:16px;padding:18px 18px;}
+.bento-main{background:var(--navy);color:#fff;}
+.bento-card{background:#fff;border:1px solid #e8e8e8;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
+.bento-tag{display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;padding:4px 10px;border-radius:20px;margin-bottom:10px;background:rgba(255,255,255,0.14);color:var(--gold-light);}
+.bento-card .bento-tag{background:var(--bg-light);color:var(--navy);}
+.bento-main strong,.bento-card strong{display:block;font-size:16px;line-height:1.3;margin-bottom:5px;}
+.bento-main .bento-big{font-size:20px;}
+.bento-card strong{color:var(--navy);}
+.bento-main p{font-size:13.5px;line-height:1.5;color:rgba(255,255,255,0.78);margin:0;}
+.bento-card p{font-size:13px;line-height:1.45;color:#555;margin:0;}
+@media (min-width:560px){.bento{grid-template-columns:1fr 1fr;}.bento-main{grid-row:span 2;display:flex;flex-direction:column;justify-content:space-between;}}
+.bento-main,.bento-card{transition:transform .22s ease, box-shadow .22s ease;}
+.bento-main:hover,.bento-card:hover{transform:translateY(-4px);}
+.bento-card:hover{box-shadow:0 8px 20px rgba(0,0,0,0.10);}
+.bento-main:hover{box-shadow:0 10px 24px rgba(0,0,0,0.22);}
+.bento-main:active,.bento-card:active{transform:translateY(-1px);}
+.bio-card{background:var(--navy);border-radius:20px;padding:26px 20px 20px;max-width:420px;margin:20px auto 0;box-shadow:0 12px 30px rgba(0,0,0,0.30);}
+.bio-card .author-photo{margin:0 auto 14px;}
+.bio-name{display:block;font-size:20px;font-weight:800;color:#fff;line-height:1.2;}
+.bio-role{display:block;font-size:13.5px;font-weight:700;color:var(--gold-light);margin-top:4px;}
+.bio-text{position:relative;margin-top:14px;min-height:76px;display:flex;align-items:center;justify-content:center;}
+.bio-slide{position:absolute;left:0;right:0;margin:0;font-size:14px;line-height:1.5;color:rgba(255,255,255,0.82);opacity:0;transition:opacity .5s ease;pointer-events:none;}
+.bio-slide.is-on{opacity:1;}
+.bio-dots{display:flex;gap:7px;justify-content:center;margin-top:16px;}
+.bio-dot{width:7px;height:7px;padding:0;border:none;border-radius:50%;background:rgba(255,255,255,0.28);cursor:pointer;transition:background .25s ease,width .25s ease;}
+.bio-dot.is-on{background:var(--gold);width:18px;border-radius:20px;}
 </style>
 </head>
 <body>
@@ -258,7 +293,7 @@ body{padding-bottom:78px;overflow-x:hidden;}
     <h2 data-reveal="up" data-reveal-delay="0">Ninguém te avisa quando a paciência do vizinho acaba</h2>
     <p class="prose" data-reveal="up" data-reveal-delay="150">Entre as 23h e as 07h, a lei do ruído aplica-se aos cães. Qualquer vizinho pode chamar a polícia por um cão que ladra.</p>
     <p class="prose" data-reveal="up" data-reveal-delay="300">E se arrendas, o problema deixa de ser com o vizinho. Passa a ser com o senhorio, que pode proibir animais no contrato.</p>
-    <div class="breaker" style="text-align:center;" data-reveal="up" data-reveal-delay="450">A maioria dos donos só trata disto depois da primeira queixa. Nessa altura já não tens tempo para andar a experimentar métodos.</div>
+    <div class="breaker" style="text-align:center;" data-reveal="up" data-reveal-delay="450">A maioria só trata disto depois da primeira queixa. Aí já não há tempo para experimentar métodos.</div>
   </div>
 </section>
 
@@ -272,7 +307,7 @@ body{padding-bottom:78px;overflow-x:hidden;}
       <li>É repetir o mesmo comando todos os dias e ele continuar a ignorar-te.</li>
       <li>É sentires que perdeste o controlo dentro da tua própria casa.</li>
     </ul>
-    <div class="breaker" style="text-align:center;" data-reveal="up" data-reveal-delay="300">Um cão que ladra a tudo não é mal comportado. É um cão em alerta permanente. E isso cansa-o tanto como te cansa a ti.</div>
+    <div class="breaker" style="text-align:center;" data-reveal="up" data-reveal-delay="300">Não é mau comportamento. É um cão em alerta permanente, e isso cansa-o tanto como te cansa a ti.</div>
   </div>
 </section>
 
@@ -280,11 +315,25 @@ body{padding-bottom:78px;overflow-x:hidden;}
 <section class="pain">
   <div class="container">
     <div class="section-paw"><svg viewBox="0 0 512 512" fill="currentColor"><ellipse cx="140" cy="200" rx="50" ry="68"></ellipse><ellipse cx="210" cy="128" rx="50" ry="68"></ellipse><ellipse cx="302" cy="128" rx="50" ry="68"></ellipse><ellipse cx="372" cy="200" rx="50" ry="68"></ellipse><ellipse cx="256" cy="360" rx="146" ry="112"></ellipse></svg></div>
-    <h2 data-reveal="up" data-reveal-delay="0">Porque se chama Modo Escondido</h2>
-    <p class="prose" data-reveal="up" data-reveal-delay="150">Vídeos soltos, apps com prémios, repetir o mesmo comando cem vezes. Tudo ensina truques e esquece o que muda mesmo o comportamento: a rotina.</p>
-    <p class="prose" data-reveal="up" data-reveal-delay="250">Quando o cão percebe que aquilo é treino, muda de estado. Fica à espera do prémio ou em alerta, e deixa de se comportar como no dia a dia, que é onde está o problema.</p>
-    <p class="prose" data-reveal="up" data-reveal-delay="350">O Modo Escondido não começa por comandos. Começa pela tua postura e pelo momento certo, coisas que o cão lê sem perceber que são ordens.</p>
-    <div class="breaker" style="text-align:center;" data-reveal="up" data-reveal-delay="450">Os comandos vêm depois, e vêm fáceis, porque a essa altura ele já percebeu o que esperas dele.</div>
+    <h2 data-reveal="up" data-reveal-delay="0">Porque se chama<br>Modo Escondido</h2>
+    <div class="bento">
+      <div class="bento-main" data-reveal="up" data-reveal-delay="0">
+        <span class="bento-tag">O método</span>
+        <strong class="bento-big">Não começa por comandos</strong>
+        <p>Começa pela tua postura e pelo momento certo, coisas que o cão lê sem perceber que são ordens.</p>
+      </div>
+      <div class="bento-card" data-reveal="up" data-reveal-delay="120">
+        <span class="bento-tag">Erro 1</span>
+        <strong>Ensinar truques</strong>
+        <p>Vídeos, apps com prémios, repetir o comando cem vezes. Nada disso mexe na rotina.</p>
+      </div>
+      <div class="bento-card" data-reveal="up" data-reveal-delay="240">
+        <span class="bento-tag">Erro 2</span>
+        <strong>O cão sabe que é treino</strong>
+        <p>Fica à espera do prémio e deixa de agir como no dia a dia, que é onde está o problema.</p>
+      </div>
+    </div>
+    <div class="breaker" style="text-align:center;" data-reveal="up" data-reveal-delay="450">Os comandos vêm depois, e vêm fáceis, porque ele já percebeu o que esperas.</div>
   </div>
 </section>
 
@@ -292,18 +341,21 @@ body{padding-bottom:78px;overflow-x:hidden;}
   <div class="container">
     <div class="section-paw"><svg viewBox="0 0 512 512" fill="currentColor"><ellipse cx="140" cy="200" rx="50" ry="68"></ellipse><ellipse cx="210" cy="128" rx="50" ry="68"></ellipse><ellipse cx="302" cy="128" rx="50" ry="68"></ellipse><ellipse cx="372" cy="200" rx="50" ry="68"></ellipse><ellipse cx="256" cy="360" rx="146" ry="112"></ellipse></svg></div>
     <h2 style="text-align:center;color:var(--navy);" data-reveal="up" data-reveal-delay="0">Como funciona</h2>
-    <div style="display:flex;flex-wrap:wrap;gap:20px;justify-content:center;max-width:720px;margin:20px auto 0;">
-      <div style="flex:1;min-width:180px;text-align:center;" data-reveal="up" data-reveal-delay="0">
-        <div style="font-size:28px;font-weight:700;color:var(--gold);">1</div>
-        <p style="font-size:14.5px;margin-top:6px;"><strong>Compras e recebes já</strong><br>Acesso imediato por email, no telemóvel ou computador.</p>
+    <div class="bento">
+      <div class="bento-main" data-reveal="up" data-reveal-delay="0">
+        <span class="bento-tag">Passo 1</span>
+        <strong class="bento-big">Compras e recebes já</strong>
+        <p>Acesso imediato por email, no telemóvel ou no computador. Não esperas por nada nem marcas hora com ninguém.</p>
       </div>
-      <div style="flex:1;min-width:180px;text-align:center;" data-reveal="up" data-reveal-delay="150">
-        <div style="font-size:28px;font-weight:700;color:var(--gold);">2</div>
-        <p style="font-size:14.5px;margin-top:6px;"><strong>Segues o Modo Escondido</strong><br>Passo a passo, módulo a módulo, na ordem certa.</p>
+      <div class="bento-card" data-reveal="up" data-reveal-delay="120">
+        <span class="bento-tag">Passo 2</span>
+        <strong>Segues o Modo Escondido</strong>
+        <p>Passo a passo, módulo a módulo, na ordem certa.</p>
       </div>
-      <div style="flex:1;min-width:180px;text-align:center;" data-reveal="up" data-reveal-delay="300">
-        <div style="font-size:28px;font-weight:700;color:var(--gold);">3</div>
-        <p style="font-size:14.5px;margin-top:6px;"><strong>Vês a mudança</strong><br>Rotina mais calma em casa, sem gritos nem puxões.</p>
+      <div class="bento-card" data-reveal="up" data-reveal-delay="240">
+        <span class="bento-tag">Passo 3</span>
+        <strong>Vês a mudança</strong>
+        <p>Rotina mais calma em casa, sem gritos nem puxões.</p>
       </div>
     </div>
   </div>
@@ -312,15 +364,15 @@ body{padding-bottom:78px;overflow-x:hidden;}
 <section class="resumindo">
   <div class="container">
     <div class="section-paw"><svg viewBox="0 0 512 512" fill="currentColor"><ellipse cx="140" cy="200" rx="50" ry="68"></ellipse><ellipse cx="210" cy="128" rx="50" ry="68"></ellipse><ellipse cx="302" cy="128" rx="50" ry="68"></ellipse><ellipse cx="372" cy="200" rx="50" ry="68"></ellipse><ellipse cx="256" cy="360" rx="146" ry="112"></ellipse></svg></div>
-    <h2 data-reveal="up" data-reveal-delay="0">O que vais receber, e o que muda</h2>
+    <h2 data-reveal="up" data-reveal-delay="0">O que vais receber</h2>
     <p class="prose" style="opacity:0.95;" data-reveal="up" data-reveal-delay="150">Seis semanas, um módulo por semana, com tarefas para aplicares em casa. Sem experiência e sem equipamento.</p>
-    <div class="mod-grid">
-      <div class="mod-card" data-reveal="up" data-reveal-delay="0"><span class="mod-num">1</span><div class="mod-body"><strong>Entende o teu cão</strong><span>Paras de fazer o que estava a piorar. Não é o cão que muda primeiro, és tu.</span></div></div>
-      <div class="mod-card" data-reveal="up" data-reveal-delay="40"><span class="mod-num">2</span><div class="mod-body"><strong>A rotina que acalma</strong><span>Ele baixa o alerta, deixa de reagir a tudo e começa a descansar a sério.</span></div></div>
-      <div class="mod-card" data-reveal="up" data-reveal-delay="80"><span class="mod-num">3</span><div class="mod-body"><strong>Os comandos que aparecem sozinhos</strong><span>Senta, fica, aqui, andar sem puxar. Fáceis, porque ele já percebeu o que esperas.</span></div></div>
-      <div class="mod-card" data-reveal="up" data-reveal-delay="120"><span class="mod-num">4</span><div class="mod-body"><strong>Resolver o que incomoda</strong><span>Ladrar à campainha, saltos nas visitas, xixi fora do sítio, ansiedade.</span></div></div>
-      <div class="mod-card" data-reveal="up" data-reveal-delay="160"><span class="mod-num">5</span><div class="mod-body"><strong>Reforçar bons hábitos</strong><span>Toda a casa aplica o mesmo e o cão para de testar limites. Sem recaídas.</span></div></div>
-      <div class="mod-card" data-reveal="up" data-reveal-delay="200"><span class="mod-num">6</span><div class="mod-body"><strong>Cão calmo para sempre</strong><span>Já não estás a aplicar um método. É só como as coisas são em tua casa.</span></div></div>
+    <div class="adv-grid">
+      <div class="adv-item" data-reveal="up" data-reveal-delay="0"><svg class="adv-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><div><strong>Entende o teu cão</strong><span>Paras de fazer o que estava a piorar.</span></div></div>
+      <div class="adv-item" data-reveal="up" data-reveal-delay="50"><svg class="adv-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><div><strong>A rotina que acalma</strong><span>Ele baixa o alerta e descansa a sério.</span></div></div>
+      <div class="adv-item" data-reveal="up" data-reveal-delay="100"><svg class="adv-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><div><strong>Comandos sem esforço</strong><span>Senta, fica, aqui, andar sem puxar.</span></div></div>
+      <div class="adv-item" data-reveal="up" data-reveal-delay="150"><svg class="adv-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><div><strong>Resolver o que incomoda</strong><span>Campainha, saltos, xixi, ansiedade.</span></div></div>
+      <div class="adv-item" data-reveal="up" data-reveal-delay="200"><svg class="adv-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><div><strong>Reforçar bons hábitos</strong><span>Toda a casa aplica o mesmo. Sem recaídas.</span></div></div>
+      <div class="adv-item" data-reveal="up" data-reveal-delay="250"><svg class="adv-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><div><strong>Cão calmo para sempre</strong><span>Deixa de ser método. É a tua casa.</span></div></div>
     </div>
     <div class="bonus-row" data-reveal="up" data-reveal-delay="240">
       <span class="bonus-chip">+ Planeador de rotina semanal</span>
@@ -328,8 +380,8 @@ body{padding-bottom:78px;overflow-x:hidden;}
       <span class="bonus-chip">+ Ficha SOS para emergências</span>
     </div>
     <p class="prose" style="opacity:0.95;margin:18px auto 0;" data-reveal="up" data-reveal-delay="260">Tudo com checklists. Acesso vitalício, no telemóvel ou no computador.</p>
-    <div class="breaker" style="text-align:center;" data-reveal="up" data-reveal-delay="300">Não esperas seis semanas para notar. A primeira já muda alguma coisa, porque começa por ti, não pelo cão.</div>
-    <p class="urgency" style="color:var(--gold-light);font-weight:700;max-width:420px;margin:18px auto 0;">Pagamento único, sem mensalidades escondidas. Compras uma vez e é teu para sempre.</p>
+    <div class="breaker" style="text-align:center;" data-reveal="up" data-reveal-delay="300">Não esperas seis semanas. A primeira já muda alguma coisa, porque começa por ti.</div>
+    <p class="urgency" style="color:var(--gold-light);font-weight:700;max-width:420px;margin:18px auto 0;">Pagamento único, sem mensalidade.<br>Compras uma vez e é teu para sempre.</p>
   </div>
 </section>
 
@@ -338,7 +390,7 @@ body{padding-bottom:78px;overflow-x:hidden;}
 <section class="testimonials">
   <div class="container">
     <div class="section-paw visible" id="paw3"><svg viewBox="0 0 512 512" fill="currentColor"><ellipse cx="140" cy="200" rx="50" ry="68"></ellipse><ellipse cx="210" cy="128" rx="50" ry="68"></ellipse><ellipse cx="302" cy="128" rx="50" ry="68"></ellipse><ellipse cx="372" cy="200" rx="50" ry="68"></ellipse><ellipse cx="256" cy="360" rx="146" ry="112"></ellipse></svg></div>
-    <h2 data-reveal="up" data-reveal-delay="0">Quem já aplicou o Modo Escondido</h2>
+    <h2 data-reveal="up" data-reveal-delay="0">Quem já aplicou o<br>Modo Escondido</h2>
     <div class="wa-carousel" data-reveal="up" data-reveal-delay="0">
       <div class="wa-slide"><img src="wa-bruno.webp" alt="Conversa com Bruno Almeida" loading="lazy"></div>
       <div class="wa-slide wa-photo"><img src="foto-passeio.webp" alt="Cão a andar com a trela lassa numa rua portuguesa" loading="lazy"><span class="wa-cap">Trela lassa, sem puxões, numa rua com gente e carros.</span></div>
@@ -354,16 +406,29 @@ body{padding-bottom:78px;overflow-x:hidden;}
 <section style="background:var(--navy-dark);color:#fff;text-align:center;">
   <div class="container">
     <div class="section-paw visible"><svg viewBox="0 0 512 512" fill="currentColor"><ellipse cx="140" cy="200" rx="50" ry="68"></ellipse><ellipse cx="210" cy="128" rx="50" ry="68"></ellipse><ellipse cx="302" cy="128" rx="50" ry="68"></ellipse><ellipse cx="372" cy="200" rx="50" ry="68"></ellipse><ellipse cx="256" cy="360" rx="146" ry="112"></ellipse></svg></div>
-    <img class="author-photo" src="lucas-ribeiro.webp" alt="Lucas Ribeiro com o seu cão" width="360" height="360" loading="lazy" decoding="async" data-reveal="up" data-reveal-delay="0">
-    <h2 data-reveal="up" data-reveal-delay="100">Quem está por trás do Modo Escondido</h2>
-    <p class="prose" style="opacity:0.95;" data-reveal="left" data-reveal-delay="0">Chamo-me Lucas Ribeiro,</p>
-    <p class="prose" style="opacity:0.95;" data-reveal="left" data-reveal-delay="150">Tinha um cão que quase me fez desistir, ladrava a tudo, saltava nas visitas e puxava-me nos passeios.</p>
-    <p class="prose" style="opacity:0.95;" data-reveal="left" data-reveal-delay="300">O que mudou tudo não foi treinar mais, foi perceber que o comportamento vem da rotina. Assim nasceu o Modo Escondido, testado no meu próprio cão.</p>
-    <p class="prose" style="opacity:0.95;" data-reveal="left" data-reveal-delay="450">Hoje é o método que uso todos os dias, e o mesmo que já ajudou centenas de donos a recuperar o controlo em casa.<br>Isto não é para teres o cão mais obediente da rua.</p>
-    <p class="prose" style="opacity:0.95;margin:14px auto 0;" data-reveal="left" data-reveal-delay="580">É para deixares de ser o dono que anda sempre a pedir desculpa e passares a ser aquele que já não precisa de dizer nada.</p>
-    <p class="prose" style="font-weight:700;color:var(--gold-light);max-width:420px;margin:18px auto 0;" data-reveal="left" data-reveal-delay="640">Se resultou comigo, que já tinha desistido de tudo o resto, também pode resultar contigo.</p>
-    <a href="https://pay.hotmart.com/G106985308C?checkoutMode=10" class="btn" target="_blank" rel="noopener" style="margin-top:20px;" data-reveal="up" data-reveal-delay="750">Quero aplicar o Modo Escondido</a>
-    <div class="trust-badge trust-badge--light"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>Pagamento seguro pela Hotmart, acesso imediato</div>
+    <h2 data-reveal="up" data-reveal-delay="0">Quem está por trás do<br>Modo Escondido</h2>
+    <div class="bio-card" data-reveal="up" data-reveal-delay="120">
+      <img class="author-photo" src="lucas-ribeiro.webp" alt="Lucas Ribeiro" width="360" height="360" loading="lazy" decoding="async">
+      <strong class="bio-name">Lucas Ribeiro</strong>
+      <span class="bio-role">Criador do Modo Escondido</span>
+      <div class="bio-text">
+          <p class="bio-slide is-on">Tinha um cão que quase me fez desistir, ladrava a tudo, saltava nas visitas e puxava-me nos passeios.</p>
+          <p class="bio-slide">O que mudou tudo não foi treinar mais, foi perceber que o comportamento vem da rotina.</p>
+          <p class="bio-slide">Assim nasceu o Modo Escondido, testado no meu próprio cão.</p>
+          <p class="bio-slide">Hoje é o método que uso todos os dias, e que já ajudou centenas de donos a recuperar o controlo em casa.</p>
+          <p class="bio-slide">Isto não é para teres o cão mais obediente da rua.</p>
+          <p class="bio-slide">É para deixares de ser o dono que anda sempre a pedir desculpa, e passares a ser aquele que já não precisa de dizer nada.</p>
+      </div>
+      <div class="bio-dots">
+          <button class="bio-dot is-on" type="button" aria-label="Parte 1"></button>
+          <button class="bio-dot" type="button" aria-label="Parte 2"></button>
+          <button class="bio-dot" type="button" aria-label="Parte 3"></button>
+          <button class="bio-dot" type="button" aria-label="Parte 4"></button>
+          <button class="bio-dot" type="button" aria-label="Parte 5"></button>
+          <button class="bio-dot" type="button" aria-label="Parte 6"></button>
+      </div>
+    </div>
+    <p class="prose" style="font-weight:700;color:var(--gold-light);max-width:420px;margin:18px auto 0;" data-reveal="up" data-reveal-delay="200">Se resultou comigo, que já tinha desistido de tudo o resto, também pode resultar contigo.</p>
   </div>
 </section>
 
@@ -428,8 +493,8 @@ body{padding-bottom:78px;overflow-x:hidden;}
     <div class="section-paw"><svg viewBox="0 0 512 512" fill="currentColor"><ellipse cx="140" cy="200" rx="50" ry="68"></ellipse><ellipse cx="210" cy="128" rx="50" ry="68"></ellipse><ellipse cx="302" cy="128" rx="50" ry="68"></ellipse><ellipse cx="372" cy="200" rx="50" ry="68"></ellipse><ellipse cx="256" cy="360" rx="146" ry="112"></ellipse></svg></div>
     <h2 data-reveal="up" data-reveal-delay="0">Perguntas frequentes</h2>
     <div class="faq-list">
-      <div class="faq-item" data-reveal="up" data-reveal-delay="0"><button class="faq-q" type="button">Funciona mesmo com o meu cão, mesmo já sendo adulto e não um cachorro?</button><div class="faq-a"><p>Sim. Funciona em cachorro ou adulto, de qualquer porte ou raça. Com um adulto pode demorar um pouco mais, mas o resultado chega na mesma.</p></div></div>
-      <div class="faq-item" data-reveal="up" data-reveal-delay="60"><button class="faq-q" type="button">Serve para o meu problema, ladrar às visitas, morder, xixi no sítio errado ou não respeitar as regras da casa?</button><div class="faq-a"><p>Sim. O protocolo trata a raiz, não só um sintoma. Ladrar, saltar, morder ou fazer xixi no sítio errado vêm todos da falta de uma rotina clara.</p></div></div>
+      <div class="faq-item" data-reveal="up" data-reveal-delay="0"><button class="faq-q" type="button">Funciona mesmo com o meu cão, mesmo já sendo adulto e não um cachorro?</button><div class="faq-a"><p>Sim, em cachorro ou adulto, de qualquer porte ou raça. Com um adulto demora um pouco mais, mas o resultado chega.</p></div></div>
+      <div class="faq-item" data-reveal="up" data-reveal-delay="60"><button class="faq-q" type="button">Serve para o meu problema, ladrar às visitas, morder, xixi no sítio errado ou não respeitar as regras da casa?</button><div class="faq-a"><p>Sim. Trata a raiz, não o sintoma. Ladrar, saltar, morder e o xixi vêm todos da falta de rotina clara.</p></div></div>
       <div class="faq-item" data-reveal="up" data-reveal-delay="120"><button class="faq-q" type="button">Preciso de experiência ou de algum equipamento para aplicar o método?</button><div class="faq-a"><p>Não. Não precisas de experiência nem de comprar aparelhos. Só seguires o plano pela ordem certa, explicado de forma simples.</p></div></div>
       <div class="faq-item" data-reveal="up" data-reveal-delay="180"><button class="faq-q" type="button">Quanto tempo por dia preciso e em quanto tempo começo a ver resultados?</button><div class="faq-a"><p>Bastam poucos minutos por dia. É a constância que conta. Muitos donos notam mudanças logo nos primeiros dias.</p></div></div>
       <div class="faq-item" data-reveal="up" data-reveal-delay="240"><button class="faq-q" type="button">É pagamento único ou vou ter de pagar todos os meses, como nos apps?</button><div class="faq-a"><p>É pagamento único. Sem subscrição, sem cobranças recorrentes. Compras uma vez e o acesso é para sempre.</p></div></div>
@@ -551,4 +616,9 @@ document.querySelectorAll('.section-paw').forEach(el => observer.observe(el));
 })();
 </script>
 <script>(function(){var l=document.querySelector('.js-scroll-oferta');var t=document.getElementById('oferta');if(!l||!t)return;l.addEventListener('click',function(e){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});});})();</script>
+<script>(function(){var w=document.querySelector('.bio-card');if(!w)return;var s=w.querySelectorAll('.bio-slide'),d=w.querySelectorAll('.bio-dot'),i=0,t;
+function go(n){s[i].classList.remove('is-on');d[i].classList.remove('is-on');i=(n+s.length)%s.length;s[i].classList.add('is-on');d[i].classList.add('is-on');}
+function play(){t=setInterval(function(){go(i+1);},5000);}
+d.forEach(function(b,n){b.addEventListener('click',function(){clearInterval(t);go(n);play();});});
+var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){if(!t)play();}else{clearInterval(t);t=null;}})},{threshold:0.3});io.observe(w);})();</script>
 </body></html>
