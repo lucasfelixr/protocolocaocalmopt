@@ -83,7 +83,7 @@ section{padding:48px 0;}
 }
 .hooks{margin:18px auto;max-width:480px;text-align:left;}
 .hooks p{font-size:14.5px;margin-bottom:8px;background:rgba(255,255,255,0.07);padding:10px 12px;border-radius:6px;}
-.hero .btn{margin:18px 0 16px;width:100%;max-width:380px;}
+.hero .btn{margin:18px 0 0;width:100%;max-width:380px;}
 .hero-bullets{list-style:none;max-width:420px;margin:10px auto 0;text-align:left;font-size:13.5px;opacity:0.9;}
 .hero-bullets li{margin-bottom:6px;padding-left:20px;position:relative;}
 .hero-bullets li:before{content:"✓";position:absolute;left:0;color:var(--gold);font-weight:700;}
@@ -139,7 +139,8 @@ footer{background:var(--navy-dark);color:rgba(255,255,255,0.6);text-align:center
 .mod-num{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:var(--navy);color:var(--gold);font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center;}
 .mod-body strong{display:block;color:var(--navy);font-size:14px;margin-bottom:3px;}
 .mod-body span{font-size:12.5px;color:#555;line-height:1.4;}
-.trust-badge{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:10px;padding-right:20px;font-size:12px;color:#666;}
+.trust-badge{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:10px;font-size:12px;color:#666;}
+.btn + .trust-badge{margin-top:16px;}
 .trust-badge svg{flex-shrink:0;width:14px;height:14px;color:#888;}
 .trust-badge--light{color:rgba(255,255,255,0.75);}
 .trust-badge--light svg{color:rgba(255,255,255,0.75);}
@@ -190,6 +191,7 @@ body{padding-bottom:78px;}
 .tl-h{display:block;color:#fff;font-weight:800;font-size:15px;margin-bottom:3px;}
 .tl-p{display:block;font-size:14px;line-height:1.45;color:#fff;opacity:.85;}
 @media(max-width:520px){.tl{padding-left:30px;}.tl-dot{left:-26px;}}
+.author-photo{display:block;width:120px;height:120px;object-fit:cover;object-position:50% 22%;margin:0 auto 16px;border-radius:50%;border:3px solid var(--gold);box-shadow:0 8px 22px rgba(0,0,0,0.35);}
 </style>
 </head>
 <body>
@@ -200,8 +202,8 @@ body{padding-bottom:78px;}
 
 <section class="hero">
   <div class="container">
-        <h1 data-reveal="up" data-reveal-delay="0">Chega de pedir desculpa pelo teu cão. Na primeira semana <span style="color:var(--gold-light)">já se nota</span>, ao fim de um mês <span style="color:var(--gold-light)">já não avisas as visitas</span>.</h1>
-    <p class="sub" data-reveal="up" data-reveal-delay="150">O Modo Escondido trata da rotina primeiro, e é por isso que o resto deixa de custar</p>
+        <h1 data-reveal="up" data-reveal-delay="0">Casa sem xixi, campainha sem ladrar, passeio sem puxões. Tudo com o <span style="color:var(--gold-light)">Modo Escondido</span>, sem comandos e sem treinador.</h1>
+    <p class="sub" data-reveal="up" data-reveal-delay="150">10 minutos por dia. Na primeira semana já podes notar diferença.</p>
 
     <div class="hero-video-wrap" data-reveal="up" data-reveal-delay="220">
       <div class="video-facade" id="vslFacade" role="button" tabindex="0" aria-label="Reproduzir vídeo com som">
@@ -366,7 +368,7 @@ body{padding-bottom:78px;}
         <div class="ribbon-pill">MAIS VENDIDO</div>
         <div class="emblem-badge emblem-badge--gold" aria-hidden="true"><svg viewBox="0 0 512 512" fill="currentColor"><ellipse cx="140" cy="200" rx="50" ry="68"></ellipse><ellipse cx="210" cy="128" rx="50" ry="68"></ellipse><ellipse cx="302" cy="128" rx="50" ry="68"></ellipse><ellipse cx="372" cy="200" rx="50" ry="68"></ellipse><ellipse cx="256" cy="360" rx="146" ry="112"></ellipse></svg></div>
         <h3>Protocolo Completo</h3>
-        <div><span class="price-old">25€</span><span class="price-new">18,33€</span><span class="price-vat">IVA incluído</span></div>
+        <div><span class="price-old">25€</span><span class="price-new">14,90€</span></div>
         <ul class="plan-list">
           <li class="yes">Protocolo Cão Calmo completo, os 6 módulos</li>
           <li class="yes">Planeador de rotina semanal</li>
@@ -383,7 +385,7 @@ body{padding-bottom:78px;}
       <div class="plan-card" data-reveal="up" data-reveal-delay="350" data-reveal-duration="800">
         <div class="emblem-badge emblem-badge--outline" aria-hidden="true"><svg viewBox="0 0 512 512" fill="currentColor"><ellipse cx="140" cy="200" rx="50" ry="68"></ellipse><ellipse cx="210" cy="128" rx="50" ry="68"></ellipse><ellipse cx="302" cy="128" rx="50" ry="68"></ellipse><ellipse cx="372" cy="200" rx="50" ry="68"></ellipse><ellipse cx="256" cy="360" rx="146" ry="112"></ellipse></svg></div>
         <h3>Protocolo Essencial</h3>
-        <div><span class="price-old">19€</span><span class="price-new">9,72€</span><span class="price-vat">IVA incluído</span></div>
+        <div><span class="price-old">19€</span><span class="price-new">7,90€</span></div>
         <ul class="plan-list">
           <li class="yes">Protocolo Cão Calmo completo, os 6 módulos</li>
           <li class="yes">Planeador de rotina semanal</li>
@@ -430,7 +432,8 @@ body{padding-bottom:78px;}
 <section style="background:var(--navy-dark);color:#fff;text-align:center;">
   <div class="container">
     <div class="section-paw visible"><svg viewBox="0 0 512 512" fill="currentColor"><ellipse cx="140" cy="200" rx="50" ry="68"></ellipse><ellipse cx="210" cy="128" rx="50" ry="68"></ellipse><ellipse cx="302" cy="128" rx="50" ry="68"></ellipse><ellipse cx="372" cy="200" rx="50" ry="68"></ellipse><ellipse cx="256" cy="360" rx="146" ry="112"></ellipse></svg></div>
-    <h2 data-reveal="up" data-reveal-delay="0">Quem está por trás do Modo Escondido</h2>
+    <img class="author-photo" src="lucas-ribeiro.webp" alt="Lucas Ribeiro com o seu cão" width="720" height="900" loading="lazy" decoding="async" data-reveal="up" data-reveal-delay="0">
+    <h2 data-reveal="up" data-reveal-delay="100">Quem está por trás do Modo Escondido</h2>
     <p class="prose" style="opacity:0.95;" data-reveal="left" data-reveal-delay="0">Chamo-me Lucas Ribeiro. Não sou treinador de cães nem tenho diploma nenhum na área.</p>
     <p class="prose" style="opacity:0.95;" data-reveal="left" data-reveal-delay="150">Tinha um cão que quase me fez desistir, ladrava a tudo, saltava nas visitas e puxava-me nos passeios. Tentei de tudo. Nada resultava.</p>
     <p class="prose" style="opacity:0.95;" data-reveal="left" data-reveal-delay="300">O que mudou tudo não foi treinar mais, foi perceber que o comportamento vem da rotina. Assim nasceu o Modo Escondido, testado no meu próprio cão.</p>
@@ -458,7 +461,7 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.4 });
 document.querySelectorAll('.section-paw').forEach(el => observer.observe(el));
 </script>
-<div class="sticky-cta"><a href="https://pay.hotmart.com/G106985308C?checkoutMode=10" target="_blank" rel="noopener">Quero o meu cão calmo agora</a></div>
+<div class="sticky-cta show"><a href="https://pay.hotmart.com/G106985308C?checkoutMode=10" target="_blank" rel="noopener">Quero o meu cão calmo agora</a></div>
 <script>document.querySelectorAll('.faq-q').forEach(function(b){b.addEventListener('click',function(){b.parentElement.classList.toggle('open');});});</script>
 <script>
 (function(){
@@ -478,7 +481,7 @@ document.querySelectorAll('.section-paw').forEach(el => observer.observe(el));
   facade.addEventListener('keydown', function(e){ if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); playVSL(); } });
 })();
 </script>
-<script>(function(){var b=document.querySelector('.sticky-cta');if(!b)return;function u(){if(window.scrollY>420){b.classList.add('show');}else{b.classList.remove('show');}}window.addEventListener('scroll',u,{passive:true});u();})();</script>
+<script>(function(){var b=document.querySelector('.sticky-cta');if(!b)return;b.classList.add('show');})();</script>
 <script>
 /* ==========================================================
    SCROLL REVEAL (vanilla JS, IntersectionObserver nativo)
